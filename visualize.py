@@ -211,7 +211,7 @@ def tsne(vectors, estimates, cues=None,
     
     colors = [estimates[cue] for cue in cues]
     #sns.scatterplot(x, y, hue=colors, marker='.', size=1, linewidth=0, alpha=0.7)
-    for opacity in [.7, .1, .01]:
+    for opacity in [.7]:
         sns.scatterplot(x, y, hue=colors, marker='.', size=1, linewidth=0, alpha=opacity)
         if save_prefix: plt.savefig('plots/' + save_prefix + 'perplex-' + str(perplex) + '-lr-' + str(lr)+ '.png')
         plt.clf()
