@@ -314,9 +314,10 @@ if __name__ == "__main__":
             out.write(cue + '\n')
     estimates = {x:1 if x in cues else 0 for x in vocab}
     cues = list(set(cues + [vocab[random.randint(0, len(vocab) - 1)] for i in range(1000)]))
+    print(len(cues))
 
     #umap_plot(vectors, estimates, cues=cues, save_prefix='test')
-    tsne(vectors, estimates, cues=cues, perplex=500, lr=500, save_prefix='test-tsne-', save_points='test')
+    tsne(vectors, estimates, cues=cues, perplex=500, lr=500, save_prefix='test-tsne-')
     
     #umap_plot(vectors, estimates, neighbors=15, metric='euclidean', cues=cues, save_prefix='umap/fasttext-en-', save_points='scatter-umap.pkl')
     #kmap(vectors, cues, save_prefix='fasttext-en-')
