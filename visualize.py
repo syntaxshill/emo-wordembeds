@@ -316,7 +316,7 @@ if __name__ == "__main__":
     cues = list(set(cues + [vocab[random.randint(0, len(vocab) - 1)] for i in range(1000)]))
     print(len(cues))
 
-    umap_plot(vectors, estimates, cues=cues, save_prefix='test')
+    umap_plot(vectors, estimates, cues=cues, save_prefix='test-umap-')
     #for perplex in [5, 10, 20, 50, 100, 200, 500, 1000]:
         #for lr in [50, 100, 500, 1000]:
         #tsne(vectors, estimates, cues=cues, perplex=perplex, save_prefix='test-tsne-')
