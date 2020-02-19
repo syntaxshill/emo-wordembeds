@@ -15,7 +15,8 @@ embeds = KeyedVectors.load_word2vec_format('./GoogleNews-vectors-negative300.bin
 print("Loaded embeddings")
 
 # load word classes
-stress_words = ['hello', 'world']
+with open("data/stress_cues.txt", "r+", encoding="utf-8") as f:
+    stress_words = [l.strip() for l in f.readlines()]
 
 def class_of_word(word):
     return 1 if word in stress_words else 0
