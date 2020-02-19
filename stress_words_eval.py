@@ -1,3 +1,8 @@
+"""
+author: eturcan
+calculate our stress word evaluation
+"""
+
 import torch
 from langdetect import detect
 import numpy as np
