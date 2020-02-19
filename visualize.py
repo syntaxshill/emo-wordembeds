@@ -317,9 +317,9 @@ if __name__ == "__main__":
     print(len(cues))
 
     #umap_plot(vectors, estimates, cues=cues, save_prefix='test')
-    for perplex in [5, 10, 20]:#50, 100, 200, 500, 1000, 2000]:
-        for lr in [50, 100, 500, 1000]:
-            tsne(vectors, estimates, cues=cues, perplex=perplex, lr=lr, save_prefix='test-tsne-')
+    for perplex in [5, 10, 20, 50, 100, 200, 500, 1000]:
+        #for lr in [50, 100, 500, 1000]:
+        tsne(vectors, estimates, cues=cues, perplex=perplex, save_prefix='test-tsne-')
     
     #umap_plot(vectors, estimates, neighbors=15, metric='euclidean', cues=cues, save_prefix='umap/fasttext-en-', save_points='scatter-umap.pkl')
     #kmap(vectors, cues, save_prefix='fasttext-en-')
