@@ -15,7 +15,7 @@ N_NEIGHBORS = 50  # consider the nearest n neighbors
 print("Running...")
 
 # load word embeddings
-embeds = KeyedVectors.load_word2vec_format('./GoogleNews-vectors-negative300.bin', binary=True)
+embeds = KeyedVectors.load_word2vec_format('../emotion-embeddings/GoogleNews-vectors-negative300.bin', binary=True)
 
 print("Loaded embeddings")
 
@@ -36,6 +36,8 @@ for key in embeds.vocab.keys():
     except:
         continue
 # good_vocab = [key for key in embeds.vocab.keys() if key == key.lower() and key.isalpha() and detect(key) == 'en']
+
+#good_vocab = list(embeds.vocab.keys())[:100]
 
 print("Cut down vocab to " + str(len(good_vocab)) + " words")
 
@@ -64,8 +66,9 @@ for xi in range(M.shape[0]):
     scores[xi] = sum([1 for neighbor in neighbors if class_of_word(good_vocab[xi]) == class_of_word(good_vocab[neighbor])])
 
 print("Got scores!")
+print(scores)
 
 print("Average score of stress words")
-print(mean([score for i, score in enumerate(scores) if class_of_word(i) == 1]))
+print(np.mean([score for i, score in enumerate(scores) if class_of_word(good_vocab[i]) == 1]))
 print("Average score of all other words")
-print(mean([score for i, score in enumerate(scores) if class_of_word(i) == 0]))
+print(np.mean([score for i, score in enumerate(scores) if class_of_word(good_vocab[i]) == 0]))
